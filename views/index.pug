@@ -1,0 +1,48 @@
+html
+  head 
+    meta(charset="UTF-8")
+    title='My Aplicación con Sockets'
+    script(src="/socket.io/socket.io.js")
+    script(src="main.js")
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous")
+  body 
+    h1(style= 'font-size: 60px; text-align: center')='Ingese un producto'
+    form(class="form")
+      div(class="container p-3 rounded my-3" style="background-color: #CAD6F5;")
+        div(class="mb-3")
+          label(for="formGroupExampleInput" class="form-label")='Nombre'
+          input(type="text" class="form-control" name ="title" id='nombre')
+      
+        div(class="mb-3")
+          label(for="formGroupExampleInput2" class="form-label")='Precio'
+          input(type="text" class="form-control" name ="price" id='precio')
+
+        div(class="mb-3")
+          label(for="formGroupExampleInput2" class="form-label")='Imagen'
+          input(type="text" class="form-control" name = "thumbnail" id='imagen')
+
+        button(class="btn btn-success" type="submit" onclick="sendDataPr(this)")="Enviar"
+
+      h1(style= 'font-size: 60px; text-align: center')='Vista de productos'
+
+      div(class="container p-3 rounded my-3 border border-3")
+        table(class="table table-striped")
+          thead
+            tr
+              th(scope="col" style= 'font-size: 50px; text-align: center')='Producto'
+              th(scope="col" style= 'font-size: 50px; text-align: center')='Precio'
+              th(scope="col" style= 'font-size: 50px; text-align: center')='Imagen'
+          tbody(id='products')
+
+    h1(style= 'font-size: 60px; text-align: center')='Centro de mensajes'
+    form(class="form")
+      div(class="container p-3 rounded my-3" style="background-color: #CAD6F5;")
+        div(class="mb-3")
+          label(for="formGroupExampleInput" class="form-label")='Mail'
+          input(type="text" class="form-control" name ="mail" id='mail')
+        div(class="container p-3 rounded my-3 border border-3 rounded-start" style="background-color: white; border" id='messages')
+        div(class="mb-3")
+          label(for="formGroupExampleInput2" class="form-label")='Mensaje'
+          input(type="text" class="form-control" name ="mensaje" id='mensaje')
+        button(class="btn btn-success" type="submit" onclick="sendDataMe(this)")="Enviar"
+        

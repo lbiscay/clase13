@@ -1,0 +1,24 @@
+html
+  head
+    title='Lista de productos'
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous")
+  body
+    h1(style= 'font-size: 70px; text-align: center')='Vista de productos'
+
+    if hayProductos
+      div(class="container p-3 rounded my-3 border border-3")
+        table(class="table table-striped")
+          thead
+            tr
+              th(scope="col" style= 'font-size: 50px; text-align: center')='Producto'
+              th(scope="col" style= 'font-size: 50px; text-align: center')='Precio'
+              th(scope="col" style= 'font-size: 50px; text-align: center')='Imagen'
+          tbody
+            each val in listaProductos
+              tr
+                td(style= 'font-size: 30px; text-align: center')=val.title
+                td(style= 'font-size: 30px; text-align: center')=val.price
+                td(style= 'text-align: center')
+                  img(class ='img-fluid' src=val.thumbnail alt="")
+    else
+      h2='No se encontraron productos'
